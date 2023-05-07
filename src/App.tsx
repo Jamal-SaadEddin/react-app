@@ -1,4 +1,4 @@
-import Button from "./components/Button/Button";
+import Like from "./components/Like";
 
 function App() {
   const handleClick = () => {
@@ -7,9 +7,7 @@ function App() {
 
   return (
     <div>
-      <Button color="primary" onClick={() => handleClick()}>
-        My Button
-      </Button>
+      <Like onClick={handleClick} />
     </div>
   );
 }

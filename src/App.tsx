@@ -2,24 +2,24 @@ import { useState } from "react";
 import Like from "./components/Like";
 
 function App() {
-  const [customer, setCustomer] = useState({
-    name: "John",
-    address: {
-      city: "San Francisco",
-      zipCode: 94111,
-    },
-  });
+  const [tags, setTags] = useState(["happy", "cheerful"]);
 
   const handleClick = () => {
-    setCustomer({
-      ...customer,
-      address: { ...customer.address, zipCode: 94112 },
-    });
+    //Add
+    // setTags([...tags, "exciting"]);
+
+    //Remove
+    // setTags(tags.filter((tag) => tag !== "cheerful"));
+
+    //Update
+    setTags(tags.map((tag) => (tag === "happy" ? "happiness" : tag)));
+
+    // You can do one of them in this function
   };
 
   return (
     <div>
-      {customer.address.zipCode}
+      {tags.join(" ")}
       <button onClick={handleClick}>Click Me</button>
     </div>
   );

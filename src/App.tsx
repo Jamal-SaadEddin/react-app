@@ -11,12 +11,12 @@ function App() {
   });
 
   const handleClick = () => {
-    setCart({
-      ...cart,
-      items: cart.items.map((item) =>
-        item.id === 1 ? { ...item, quantity: item.quantity + 1 } : item
-      ),
-    });
+    setCart(
+      produce((cart) => {
+        const item = cart.items.find((item) => item.id === 1);
+        if (item) item.quantity++;
+      })
+    );
   };
 
   return (

@@ -8,7 +8,11 @@ function App() {
   });
 
   const handleClick = () => {
-    setPizza({ ...pizza, toppings: [...pizza.toppings, "Cheese"] });
+    setPizza(
+      produce((pizza) => {
+        pizza.toppings.push("Cheese");
+      })
+    );
   };
 
   return (

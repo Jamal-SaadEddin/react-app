@@ -2,25 +2,19 @@ import { useState } from "react";
 import produce from "immer";
 
 function App() {
-  const [game, setGame] = useState({
-    id: 1,
-    player: {
-      name: "John",
-    },
+  const [pizza, setPizza] = useState({
+    name: "Spicy Pepperoni",
+    toppings: ["Mushroom"],
   });
 
   const handleClick = () => {
-    setGame(
-      produce((game) => {
-        game.player.name = "Bob";
-      })
-    );
+    setPizza({ ...pizza, toppings: [...pizza.toppings, "Cheese"] });
   };
 
   return (
     <div>
-      <p>{game.player.name}</p>
-      <button onClick={handleClick}>Change</button>
+      <p>{pizza.toppings.join(", ")}</p>
+      <button onClick={handleClick}>Add topping</button>
     </div>
   );
 }
